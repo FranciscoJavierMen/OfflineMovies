@@ -41,9 +41,18 @@ public class MyMovieRecyclerViewAdapter extends RecyclerView.Adapter<MyMovieRecy
                 .into(holder.imgCover);
     }
 
+    public void setData(List<MovieEntity> movieEntityList){
+        this.mValues = movieEntityList;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
-        return mValues.size();
+
+        if (mValues != null){
+            return mValues.size();
+        }
+        return 0;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
