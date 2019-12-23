@@ -6,10 +6,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.offlinemovies.R;
-import com.example.offlinemovies.data.MovieEntity;
+import com.example.offlinemovies.data.local.MovieEntity;
+import com.example.offlinemovies.data.remote.ApiConstants;
 
 import java.util.List;
 
@@ -33,6 +35,10 @@ public class MyMovieRecyclerViewAdapter extends RecyclerView.Adapter<MyMovieRecy
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
+
+        Glide.with(context)
+                .load(ApiConstants.IMAGE_API_PREFIX.concat(holder.mItem.getPosterPath()))
+                .into(holder.imgCover);
     }
 
     @Override
@@ -41,21 +47,14 @@ public class MyMovieRecyclerViewAdapter extends RecyclerView.Adapter<MyMovieRecy
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
-        public MovieEntity mItem;
+        final View mView;
+        final ImageView imgCover;
+        MovieEntity mItem;
 
-        public ViewHolder(View view) {
+        ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
-            mContentView = (TextView) view.findViewById(R.id.content);
-        }
-
-        @Override
-        public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            imgCover = view.findViewById(R.id.imgCover);
         }
     }
 }
