@@ -1,4 +1,4 @@
-package com.example.offlinemovies.data.local;
+package com.example.offlinemovies.data.local.entity;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

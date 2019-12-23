@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.offlinemovies.R;
-import com.example.offlinemovies.data.local.MovieEntity;
+import com.example.offlinemovies.data.local.entity.MovieEntity;
 
 import java.util.List;
 
