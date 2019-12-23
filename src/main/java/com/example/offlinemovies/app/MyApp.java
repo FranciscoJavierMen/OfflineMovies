@@ -1,4 +1,4 @@
-package com.example.offlinemovies;
+package com.example.offlinemovies.app;
 
 import android.app.Application;
 import android.content.Context;
